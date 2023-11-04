@@ -1,0 +1,16 @@
+.root {
+    display: flex;
+    gap: 125px;
+    padding: 12px 20px;
+    border-bottom: 1px solid #DDDEE4;
+}
+
+.root:last-child {
+    border-bottom: 0px;
+}
+
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

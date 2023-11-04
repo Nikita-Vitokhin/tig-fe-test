@@ -3,6 +3,9 @@ import { ApolloClient, InMemoryCache, ApolloProvider, gql, useQuery } from '@apo
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Heading } from '@chakra-ui/react'
+import { Header } from './components/Header'
+import { ShipmentList } from './components/ShipmentList'
 
 const SHIPMENTS_QUERY = gql`
   query Shipments {
@@ -51,7 +54,16 @@ function ShipmentsView() {
   );
 }
 
-function ShipmentDetailsView({ trackingId }: { trackingId: string }) {
+function GetShipments() {
+  const { loading, error, data } = useQuery(SHIPMENTS_QUERY);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :</p>;
+
+  return data
+}
+
+function GetShipmentDetails({ trackingId }: { trackingId: string }) {
   const { loading, error, data } = useQuery(TRACKING_EVENTS_QUERY, {
     variables: { trackingId },
   });
@@ -81,12 +93,14 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <ApolloProvider client={client}>
+      <Header />
+      <section className="shipmentBlock">
+        <ShipmentList />
+      </section>
       <ShipmentsView />
-    </ApolloProvider>
+    </ApolloProvider >
   )
 }
 
