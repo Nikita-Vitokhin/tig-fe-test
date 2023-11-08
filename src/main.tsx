@@ -4,7 +4,7 @@ import App from './App.tsx'
 import { ChakraProvider } from '@chakra-ui/react'
 import './index.css'
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById('root')!
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <ChakraProvider>

@@ -1,5 +1,7 @@
 .root {
     display: flex;
+    text-align: left;
+    width: 100%;
     gap: 125px;
     padding: 12px 20px;
     border-bottom: 1px solid #DDDEE4;
