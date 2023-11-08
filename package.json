@@ -2,13 +2,16 @@
   "name": "tig-fe-test",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://grewhd.github.io/tig-fe-test/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "jest",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@apollo/client": "^3.8.6",
@@ -37,6 +40,7 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "gh-pages": "^6.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.1",
